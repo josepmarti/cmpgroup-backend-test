@@ -1,0 +1,111 @@
+<?php
+
+/**
+ * Created by Josep Martí
+ */
+namespace model;
+
+
+/**
+ * Abstract class for Video
+ *
+ */
+class Video
+{
+    /**
+     * Tags of the Video.
+     */
+    private $tags;
+
+    /**
+     * Url point of the Video.
+     */
+    private $url;
+
+    /**
+     * Title point of the Video.
+     */
+    private $title;
+
+
+    /**
+     * Constructor for the Video class.
+     * @param string $title
+     * @param string $url
+     * @param string $tags
+     *
+     */
+    function __construct($title, $url, $tags)
+    {
+        $this->title = $title;
+        $this->url = $url;
+        $this->tags = $tags;
+
+    }
+
+    /**
+     * Get tags
+     *
+     * @return array $tags
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Set tags
+     *
+     * @param array $tags
+     *
+     * @return void
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string $url
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return void
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string $title
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return void
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+}

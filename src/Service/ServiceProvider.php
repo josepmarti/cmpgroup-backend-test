@@ -1,0 +1,94 @@
+<?php
+
+/**
+ * Created Josep Martí
+ */
+
+namespace Service;
+
+/**
+ * Service Provider
+ */
+final class ServiceProvider extends AbstractProvider
+{
+
+    /**
+     * Provider Instance (Singleton)
+     *
+     * @var ServiceProvider
+     */
+    private static $_instance;
+
+
+    /**
+     * Access to the Singleton du service provider
+     *
+     * @return ServiceProvider
+     */
+    final public static function getInstance()
+    {
+        if (self::$_instance === null) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    }
+
+    /**
+     * Private constructor because implemented as singletons
+     */
+    final private function __construct()
+    {
+    }
+
+    /**
+     * Delete all the instances of the service
+     *
+     * Only used by the Unit Tests
+     */
+    public function clearAllInstance()
+    {
+        parent::clearAllInstance();
+        self::$_instance = null;
+    }
+
+    /**
+     * Access to the JSONService service's instance
+     *
+     * @return JSONService
+     */
+    public function getJSONService()
+    {
+        return $this->provideInstance('Service\JSONService');
+    }
+
+    /**
+     * Access to the YAMLService service instance
+     *
+     * @return YAMLService
+     */
+    public function getYAMLService()
+    {
+        return $this->provideInstance('Service\YAMLService');
+    }
+
+
+    /**
+     * Access to the GlorfService service instance
+     *
+     * @return GlorfService
+     */
+    public function getGlorf()
+    {
+        return $this->provideInstance('Service\GlorfService');
+    }
+
+    /**
+     * Access to the FlubService service instance
+     *
+     * @return FlubService
+     */
+    public function getFlub()
+    {
+        return $this->provideInstance('Service\FlubService');
+    }
+}
